@@ -21,9 +21,15 @@ public class EtudiantController {
     @Autowired
     private EtudiantServices etudiantServices ;
 
+
     @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
-        return etudiantServices.listeEtudiants();
+
+        List<Etudiant>  liste =  etudiantServices.listeEtudiants();
+        Etudiant etudiant = new Etudiant();
+        etudiant.setNom("Alassane");
+        liste.add(etudiant);
+        return liste ;
     }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
