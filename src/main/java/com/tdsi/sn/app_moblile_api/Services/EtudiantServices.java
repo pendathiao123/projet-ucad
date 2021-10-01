@@ -37,7 +37,6 @@ public class EtudiantServices {
     }
 
     public Etudiant getEtudiantByTelephone(int telephone){
-        // System.out.println(etudiantRepository.findByTelephone(telephone));
         return  etudiantRepository.findByTelephone(telephone);
     }
 
