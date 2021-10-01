@@ -29,7 +29,7 @@ public class EtudiantController {
     }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
-        return etudiantServices.addEtudiant(etudiant);
+        return etudiant ;
     }
     @GetMapping("/")
     public String hello(){
