@@ -23,9 +23,9 @@ public class EtudiantController {
 
 
     @GetMapping("/etudiant")
-    public String getEtudiants(){
-       // List<Etudiant>  liste  = etudiantServices.listeEtudiants() ;
-        return "very goood " ;
+    public List<Etudiant> getEtudiants(){
+
+        return  etudiantServices.listeEtudiants() ;
     }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
