@@ -33,7 +33,7 @@ public class EtudiantController {
     }
     @GetMapping("/")
     public String hello(){
-        return "Hello from Api Spring 000" ;
+        return "Hello from Api Spring 0000" ;
     }
     @PutMapping("/etudiant")
     public Etudiant updateEtudiant( @RequestBody Etudiant etudiant){
