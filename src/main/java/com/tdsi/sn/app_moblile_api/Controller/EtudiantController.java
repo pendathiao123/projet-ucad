@@ -24,10 +24,7 @@ public class EtudiantController {
 
     @GetMapping("/etudiant")
     public String getEtudiants(){
-
-        List<Etudiant>  liste  = etudiantServices.listeEtudiants() ;
-         if(liste==null)
-             return "baddd";
+       // List<Etudiant>  liste  = etudiantServices.listeEtudiants() ;
         return "very goood " ;
     }
     @PostMapping("/etudiant")
@@ -36,7 +33,7 @@ public class EtudiantController {
     }
     @GetMapping("/")
     public String hello(){
-        return "Hello from Api Spring 2" ;
+        return "Hello from Api Spring 22" ;
     }
     @PutMapping("/etudiant")
     public Etudiant updateEtudiant( @RequestBody Etudiant etudiant){
