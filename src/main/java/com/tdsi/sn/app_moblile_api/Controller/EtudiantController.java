@@ -21,19 +21,19 @@ public class EtudiantController {
     @Autowired
     private EtudiantServices etudiantServices ;
 
-    @GetMapping("etudiant")
+    @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
         return etudiantServices.listeEtudiants();
     }
-    @PostMapping("etudiant")
+    @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
         return etudiantServices.addEtudiant(etudiant);
     }
-    @GetMapping("")
+    @GetMapping("/")
     public String hello(){
-        return "Hello from Api Spring " ;
+        return "Hello from Api Spring 2" ;
     }
-    @PutMapping("etudiant")
+    @PutMapping("/etudiant")
     public Etudiant updateEtudiant( @RequestBody Etudiant etudiant){
 
         return etudiantServices.updateEtudiant(etudiant) ;
