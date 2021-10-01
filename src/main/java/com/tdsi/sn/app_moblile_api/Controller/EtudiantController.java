@@ -23,13 +23,12 @@ public class EtudiantController {
 
 
     @GetMapping("/etudiant")
-    public List<Etudiant> getEtudiants(){
+    public String getEtudiants(){
 
-        List<Etudiant>  liste =  etudiantServices.listeEtudiants();
-        Etudiant etudiant = new Etudiant();
-        etudiant.setNom("Alassane");
-        liste.add(etudiant);
-        return liste ;
+        List<Etudiant>  liste  = etudiantServices.listeEtudiants() ;
+         if(liste==null)
+             return "baddd";
+        return "very goood " ;
     }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
