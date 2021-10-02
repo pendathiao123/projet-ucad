@@ -33,7 +33,7 @@ public class EtudiantController {
     }
     @GetMapping("/")
     public String hello(){
-        return "Hello from Api Spring 0000" ;
+        return "Hello from Api Spring" ;
     }
     @PutMapping("/etudiant")
     public Etudiant updateEtudiant( @RequestBody Etudiant etudiant){
@@ -53,7 +53,7 @@ public class EtudiantController {
         if(etudiant_donneur.getSolde()>montant){
             etudiant_receveur.setSolde(etudiant_receveur.getSolde()+montant);
             etudiant_donneur.setSolde(etudiant_donneur.getSolde()-montant);
-            etudiantServices.updateEtudiant(etudiant_receveur);
+            etudiantServices.updateEtudiant(etudiant_donneur);
             etudiantServices.updateEtudiant(etudiant_receveur) ;
             return "good" ;
         }
