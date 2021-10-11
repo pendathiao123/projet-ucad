@@ -36,7 +36,7 @@ public class EtudiantController {
         //Store
         PaydunyaCheckoutStore store = new PaydunyaCheckoutStore();
         store.setName("Ucad_coins"); // Seul le nom est requis
-        store.setTagline("App for ucad");
+        store.setTagline("App fooor ucad");
         store.setPhoneNumber("775860894");
         store.setPostalAddress("Dakar Plateau - Etablissement kheweul");
         store.setCallbackUrl("https://springapiucad.herokuapp.com/payCallback");
