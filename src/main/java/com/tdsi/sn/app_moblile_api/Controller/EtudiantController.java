@@ -45,6 +45,10 @@ public class EtudiantController {
         return  etudiantServices.delEtudiant(id) ;
     }
 
+    @GetMapping("etudiant/{id}")
+    public Etudiant getOneEtudiant(@PathVariable int id){
+        return  etudiantServices.getEtudiant(id) ;
+    }
     @PutMapping ("transfert/{donneur}/{receveur}/{montant}")
     public String transferer (@PathVariable int donneur ,@PathVariable int receveur , @PathVariable int montant){
         Etudiant etudiant_donneur =  etudiantServices.getEtudiantByTelephone(donneur);
@@ -78,4 +82,5 @@ public class EtudiantController {
         int telephone = etudiant.getTelephone() ;
         return etudiantServices.getEtudiantByTelephone(telephone) ;
     }
+    
 }
