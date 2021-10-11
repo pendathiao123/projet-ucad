@@ -7,11 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import  com.paydunya.neptune.* ;
 import java.util.List;
 
 @RestController
+@EnableAutoConfiguration
 //@CrossOrigin(origins = "http://localhost:19006")
 @Data
 @AllArgsConstructor
