@@ -64,7 +64,7 @@ public class EtudiantController {
 
         return  etudiantServices.listeEtudiants() ;
     }
-    @GetMapping("payCallback")
+    @PostMapping("payCallback")
     public  String callback(){
         return  "Hello Callback" ;
     }
