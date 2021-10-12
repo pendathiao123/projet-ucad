@@ -74,6 +74,7 @@ public class EtudiantController {
     }
     @GetMapping("/")
     public String hello(){
+        System.out.println("je suis Println");
         return "Hello from Api Spring" ;
     }
     @PutMapping("/etudiant")
