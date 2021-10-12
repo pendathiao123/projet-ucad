@@ -1,5 +1,5 @@
 package com.tdsi.sn.app_moblile_api.Controller;
-import com.paydunya.neptune.*;
+//import com.paydunya.neptune.*;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
 import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class EtudiantController {
     @Autowired
     private EtudiantServices etudiantServices ;
 
-
+/*
     @GetMapping("paydunya")
     public String    payementPaydunya(){
         //Setup
@@ -57,7 +57,7 @@ public class EtudiantController {
         }
    return  invoice.getResponseText();
     }
-
+*/
 
     @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
