@@ -1,6 +1,6 @@
 package com.tdsi.sn.app_moblile_api.Controller;
 
-import com.paydunya.neptune.*;
+//import com.paydunya.neptune.*;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
 import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
-import  com.paydunya.neptune.* ;
+//import  com.paydunya.neptune.* ;
 import java.util.List;
 
 @RestController
@@ -23,7 +23,7 @@ public class EtudiantController {
     @Autowired
     private EtudiantServices etudiantServices ;
 
-
+/*
     @GetMapping("paydunya")
     public String    payementPaydunya(){
         //Setup
@@ -59,6 +59,8 @@ public class EtudiantController {
         }
    return  invoice.getResponseText();
     }
+    */
+ 
     @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
 
