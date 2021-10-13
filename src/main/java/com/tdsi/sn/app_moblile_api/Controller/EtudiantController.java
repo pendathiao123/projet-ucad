@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-@CrossOrigin(origins = "https://10.153.199.187:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
