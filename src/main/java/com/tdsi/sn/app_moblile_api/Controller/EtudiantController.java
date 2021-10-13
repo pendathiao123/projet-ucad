@@ -39,7 +39,7 @@ public class EtudiantController {
         store.setTagline("App fooor ucad");
         store.setPhoneNumber("775860894");
         store.setPostalAddress("Dakar Plateau - Etablissement kheweul");
-        store.setCallbackUrl("https://springapiucad.herokuapp.com/payCallback");
+       // store.setCallbackUrl("https://springapiucad.herokuapp.com/payCallback");
         //store.setWebsiteUrl("http://www.chez-sandra.sn");
        // store.setLogoUrl("http://www.chez-sandra.sn/logo.png");
 
