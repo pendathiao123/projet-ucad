@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-//@CrossOrigin(origins = "http://localhost:19006")
+@CrossOrigin(origins = "http://192.168.43.49:3000")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,9 +44,9 @@ public class EtudiantController {
        // store.setLogoUrl("http://www.chez-sandra.sn/logo.png");
 
         PaydunyaCheckoutInvoice invoice = new PaydunyaCheckoutInvoice(setup, store);
-        invoice.addItem("tickets", 3, 10000, 30000, "Chaussures");
-        invoice.setTotalAmount(42300);
-          invoice.create();
+        invoice.addItem("tickets", 3, 1000, 3000, "Chaussures");
+        invoice.setTotalAmount(30000);
+        invoice.create();
         if (invoice.create()) {
             System.out.println(invoice.getStatus());
             System.out.println(invoice.getResponseText());
