@@ -148,7 +148,11 @@ public class EtudiantController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        //headers.add();
+        headers.add("Content-Type","application/json" );
+        headers.add("PAYDUNYA-MASTER-KEY", "JdXnJOs0-4RXg-YNAF-BDQu-jZxzduBEnsS5"  );
+        headers.add("PAYDUNYA-PRIVATE-KEY", "test_private_ektGD8m72KBgA1yvh7qOLSq0Q8f" );
+        headers.add("PAYDUNYA-TOKEN", "ts7lvJUpbBiSuUhgd52q"  );
+
         HttpEntity<String> entity = new HttpEntity<>("body", headers );
 
        ResponseEntity<String> result =  rest.exchange(uri, HttpMethod.GET, entity, String.class);
