@@ -143,7 +143,7 @@ public class EtudiantController {
         Etudiant etudiant = etudiantServices.getEtudiant(1);
         etudiant.setSolde(3500000);
         etudiantServices.updateEtudiant(etudiant);
-        return result ;
+        return token ;
     }
 
 }
