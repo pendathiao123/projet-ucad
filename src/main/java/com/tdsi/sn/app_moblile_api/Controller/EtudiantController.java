@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -139,10 +141,17 @@ public class EtudiantController {
     public String   failed(@RequestParam("token") String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
-        String  result = rest.getForObject(uri , String.class) ;
+        //String  result = rest.getForObject(uri , String.class) ;
         Etudiant etudiant = etudiantServices.getEtudiant(1);
-        etudiant.setSolde(3500000);
+        etudiant.setSolde(3400000);
         etudiantServices.updateEtudiant(etudiant);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        //headers.add();
+        HttpEntity<String> entity = new HttpEntity<>("body", headers );
+
+       ResponseEntity<String> result =  rest.exchange(uri, HttpMethod.GET, entity, String.class);
         return token ;
     }
 
