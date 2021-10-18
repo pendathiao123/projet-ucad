@@ -125,4 +125,12 @@ public class EtudiantController {
         return etudiantServices.getEtudiantByTelephone(telephone) ;
     }
 
+    @PostMapping("paySuccess")
+    public String   Success(){
+        Etudiant etudiant = etudiantServices.getEtudiant(1);
+        etudiant.setSolde(2000000);
+        etudiantServices.updateEtudiant(etudiant);
+        return "good";
+    }
+
 }

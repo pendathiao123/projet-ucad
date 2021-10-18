@@ -48,8 +48,20 @@
 			<version>1.0</version>
 			<systemPath>${project.basedir}/src/lib/paydunya_java_latest.jar</systemPath>
 		</dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gaixie.json</groupId>
+            <artifactId>json</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 
 	<build>
