@@ -135,8 +135,8 @@ public class EtudiantController {
         etudiantServices.updateEtudiant(etudiant);
         return "good";
     }
-    @GetMapping("paySuccess/{token}")
-    public String   failed(@RequestParam String token){
+    @GetMapping("paySuccess")
+    public String   failed(@RequestParam("token") String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         String  result = rest.getForObject(uri , String.class) ;
