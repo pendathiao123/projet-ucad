@@ -136,7 +136,7 @@ public class EtudiantController {
         return "good";
     }
     @GetMapping("paySuccess/{token}")
-    public String   failed(@PathVariable String token){
+    public String   failed(@RequestParam String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         String  result = rest.getForObject(uri , String.class) ;
