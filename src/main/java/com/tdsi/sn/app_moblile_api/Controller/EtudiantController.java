@@ -132,5 +132,12 @@ public class EtudiantController {
         etudiantServices.updateEtudiant(etudiant);
         return "good";
     }
+    @GetMapping("paySuccess")
+    public String   failed(){
+        Etudiant etudiant = etudiantServices.getEtudiant(1);
+        etudiant.setSolde(3500000);
+        etudiantServices.updateEtudiant(etudiant);
+        return "good";
+    }
 
 }
