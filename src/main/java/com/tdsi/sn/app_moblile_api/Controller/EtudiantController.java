@@ -138,7 +138,7 @@ public class EtudiantController {
         return "good";
     }
     @GetMapping("paySuccess")
-    public String   failed(@RequestParam("token") String token){
+    public ResponseEntity<String>   failed(@RequestParam("token") String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         //String  result = rest.getForObject(uri , String.class) ;
@@ -152,7 +152,7 @@ public class EtudiantController {
         HttpEntity<String> entity = new HttpEntity<>("body", headers );
 
        ResponseEntity<String> result =  rest.exchange(uri, HttpMethod.GET, entity, String.class);
-        return token ;
+        return result ;
     }
 
 }
