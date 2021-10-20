@@ -33,10 +33,6 @@ public class EtudiantController {
 
         return  etudiantServices.listeEtudiants() ;
     }
-    @PostMapping("payCallback")
-    public  String callback(){
-        return  "Hello Callback" ;
-    }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
         return etudiantServices.addEtudiant(etudiant) ;
