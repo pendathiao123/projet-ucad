@@ -29,7 +29,7 @@ public class EtudiantController {
     public Etudiant get(@PathVariable("numero") String numero){
         return etudiantService.getEtudiantByNumber(numero);
     }
-    @PutMapping("etudiant")
+    @PostMapping("etudiant")
     public void save(@RequestBody Etudiant etudiant) {
         etudiantService.createEtudiant(etudiant);
     }
