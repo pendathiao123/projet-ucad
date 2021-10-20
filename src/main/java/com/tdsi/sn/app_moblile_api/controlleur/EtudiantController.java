@@ -39,7 +39,7 @@ public class EtudiantController {
     }
     @GetMapping("/")
     public String hello(){
-        return "hello"
+        return "hello" ;
     }
 
 
