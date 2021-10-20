@@ -35,8 +35,9 @@ public class EtudiantController {
         return etudiantService.createEtudiant(etudiant);
     }
     @PostMapping("/login")
-    public boolean inscrire(@RequestBody Etudiant user) {
-        return etudiantService.verifyLogin(user.getNumero(),user.getPassword());
+    public Etudiant inscrire(@RequestBody Etudiant user) {
+        Etudiant etudiant = etudiantService.getEtudiantByNumber(user.getNumero());
+        return etudiant ;
     }
     @GetMapping("/")
     public String hello(){
