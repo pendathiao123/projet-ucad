@@ -25,10 +25,10 @@ public class EtudiantController {
     public Etudiant getEtudiant(@PathVariable("id") int id) {
         return etudiantService.getEtudiant(id);
     }
-    @GetMapping("/get/{numero}")
-    public Etudiant get(@PathVariable("numero") String numero){
-        return etudiantService.getEtudiantByNumber(numero);
-    }
+    //@GetMapping("/get/{numero}")
+    //public Etudiant get(@PathVariable("numero") String numero){
+       // return etudiantService.getEtudiantByNumber(numero);
+    //}
     @PostMapping("etudiant")
     public Etudiant save(@RequestBody Etudiant etudiant) {
 
