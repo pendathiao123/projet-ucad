@@ -41,6 +41,7 @@ public class EtudiantService {
     }
 
     public boolean verifyLogin(String numero,String password) {
+        /*
         final List<Integer> t = new ArrayList<>();
         Iterable<Etudiant> liste = etudiantRepository.findAll();
         liste.forEach(etudiant -> {
@@ -53,7 +54,8 @@ public class EtudiantService {
         }
         else {
             return true;
-        }
+        }*/
+        return   true ;
     }
     public Etudiant updateEtudiant(Etudiant etudiant){
         Etudiant e = etudiantRepository.findById(etudiant.getIdetudiant()).get();
