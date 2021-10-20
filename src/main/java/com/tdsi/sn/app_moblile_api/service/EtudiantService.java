@@ -30,6 +30,7 @@ public class EtudiantService {
     public void deleteEtudiant(int id) {
         etudiantRepository.deleteById(id);
     }
+    /*
     public Etudiant getEtudiantByNumber(String numero) {
         final ArrayList<Etudiant> t = new ArrayList<>();
         getEtudiants().forEach(etudiant -> {
@@ -39,7 +40,7 @@ public class EtudiantService {
         });
         return t.get(0);
     }
-/*
+
     public boolean verifyLogin(String numero,String password) {
         final List<Integer> t = new ArrayList<>();
         Iterable<Etudiant> liste = etudiantRepository.findAll();
@@ -62,6 +63,7 @@ public class EtudiantService {
     public Etudiant getEtudiantByTelephone(int numero){
         return  etudiantRepository.findByTelephone(numero);
     }
+    /*
     public Etudiant updateEtudiant(Etudiant etudiant){
         Etudiant e = etudiantRepository.findById(etudiant.getIdetudiant()).get();
 
@@ -92,5 +94,5 @@ public class EtudiantService {
         etudiantRepository.save(e);
         return e;
 
-    }
+    }*/
 }

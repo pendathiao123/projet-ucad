@@ -36,7 +36,7 @@ public class EtudiantController {
     }
     @PostMapping("/login")
     public Etudiant inscrire(@RequestBody Etudiant user) {
-        Etudiant etudiant = etudiantService.getEtudiantByNumber(user.getNumero());
+        Etudiant etudiant = etudiantService.getEtudiantByTelephone( user.getNumero() );
         return etudiant ;
     }
     @GetMapping("/")

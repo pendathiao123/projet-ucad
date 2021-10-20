@@ -18,7 +18,7 @@ public class Etudiant {
     private String prenom;
     private String nom;
     private int solde;
-    private String numero;
+    private int numero;
     private String carte;
     private String password;
 
