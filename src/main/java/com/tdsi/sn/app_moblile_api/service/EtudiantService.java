@@ -57,6 +57,11 @@ public class EtudiantService {
     }
 
  */
+
+
+    public Etudiant getEtudiantByTelephone(int numero){
+        return  etudiantRepository.findByTelephone(numero);
+    }
     public Etudiant updateEtudiant(Etudiant etudiant){
         Etudiant e = etudiantRepository.findById(etudiant.getIdetudiant()).get();
 
