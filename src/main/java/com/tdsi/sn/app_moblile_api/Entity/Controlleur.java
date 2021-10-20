@@ -1,26 +1,21 @@
 package com.tdsi.sn.app_moblile_api.Entity;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 @Entity
 @Data
-@Table(name = "etudiant")
-public class Etudiant {
+@Table(name = "controlleur")
+public class Controlleur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idetudiant;
+    private int idcontrole;
 
     private String prenom;
     private String nom;
-    private int solde;
     private String numero;
-    private String carte;
     private String password;
-
-
+    private int compteur;
 }
