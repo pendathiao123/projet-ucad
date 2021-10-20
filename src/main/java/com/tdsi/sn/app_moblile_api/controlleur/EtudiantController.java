@@ -35,7 +35,7 @@ public class EtudiantController {
         return etudiantService.createEtudiant(etudiant);
     }
     @PostMapping("/login")
-    public boolean inscrire(@RequestBody User user) {
+    public boolean inscrire(@RequestBody Etudiant user) {
         return etudiantService.verifyLogin(user.getNumero(),user.getPassword());
     }
     @GetMapping("/")
