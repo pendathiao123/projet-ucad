@@ -30,8 +30,9 @@ public class EtudiantController {
         return etudiantService.getEtudiantByNumber(numero);
     }
     @PostMapping("etudiant")
-    public void save(@RequestBody Etudiant etudiant) {
-        etudiantService.createEtudiant(etudiant);
+    public Etudiant save(@RequestBody Etudiant etudiant) {
+
+        return etudiantService.createEtudiant(etudiant);
     }
     @PutMapping("/etudiant/login")
     public boolean inscrire(@RequestBody User user) {
