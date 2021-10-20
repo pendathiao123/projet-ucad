@@ -37,6 +37,10 @@ public class EtudiantController {
     public boolean inscrire(@RequestBody User user) {
         return etudiantService.verifyLogin(user.getNumero(),user.getPassword());
     }
+    @GetMapping("/")
+    public String hello(){
+        return "hello"
+    }
 
 
 }
