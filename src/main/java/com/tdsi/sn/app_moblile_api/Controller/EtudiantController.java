@@ -35,7 +35,10 @@ public class EtudiantController {
     }
     @PostMapping("/etudiant")
     public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
-        return etudiantServices.addEtudiant(etudiant) ;
+        if(etudiant.getMotPasse() !=0 && etudiant.getNom() !=null && etudiant.getPrenom()!=null && etudiant.getTelephone()!=0 && etudiant.getNumero_carte()!=null){
+            return etudiantServices.addEtudiant(etudiant) ;
+        }
+        return null ;
     }
     @GetMapping("/")
     public String hello(){
@@ -87,7 +90,10 @@ public class EtudiantController {
     @PostMapping ("oneEtudiant")
     public  Etudiant getOneEtudiantByTelephone(@RequestBody Etudiant etudiant){
         int telephone = etudiant.getTelephone() ;
-        return etudiantServices.getEtudiantByTelephone(telephone) ;
+          if(etudiantServices.getEtudiantByTelephone(telephone)!=null) {
+              return etudiantServices.getEtudiantByTelephone(telephone);
+          }else
+              return null ;
     }
 
     @PostMapping("paySuccess")
