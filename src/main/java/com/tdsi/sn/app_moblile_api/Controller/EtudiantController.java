@@ -84,7 +84,7 @@ public class EtudiantController {
                 return etudiantAuth;
             }
         }
-        return etudiantUnknown ;
+        return null ;
     }
 
     @PostMapping ("oneEtudiant")
