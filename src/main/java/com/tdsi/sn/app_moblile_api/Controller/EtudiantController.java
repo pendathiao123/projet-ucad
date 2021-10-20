@@ -1,5 +1,4 @@
 package com.tdsi.sn.app_moblile_api.Controller;
-import com.paydunya.neptune.*;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
 import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
 import lombok.AllArgsConstructor;
@@ -27,41 +26,6 @@ public class EtudiantController {
     private EtudiantServices etudiantServices ;
 
 
-    @GetMapping("paydunya")
-    public String    payementPaydunya(){
-        //Setup
-
-        PaydunyaSetup setup = new PaydunyaSetup();
-        setup.setMasterKey("JdXnJOs0-4RXg-YNAF-BDQu-jZxzduBEnsS5");
-        setup.setPrivateKey("test_private_ektGD8m72KBgA1yvh7qOLSq0Q8f");
-        setup.setPublicKey("test_public_KatdMbJcqZ5gYjCCQp1CC472T3L");
-        setup.setToken("ts7lvJUpbBiSuUhgd52q");
-        setup.setMode("test");
-
-        //Store
-        PaydunyaCheckoutStore store = new PaydunyaCheckoutStore();
-        store.setName("ucad_coins"); // Seul le nom est requis
-        store.setTagline("App fooor ucad");
-        store.setPhoneNumber("775860894");
-        store.setPostalAddress("Dakar Plateau - Etablissement kheweul");
-       // store.setCallbackUrl("https://springapiucad.herokuapp.com/payCallback");
-        //store.setWebsiteUrl("http://www.chez-sandra.sn");
-       // store.setLogoUrl("http://www.chez-sandra.sn/logo.png");
-
-        PaydunyaCheckoutInvoice invoice = new PaydunyaCheckoutInvoice(setup, store);
-        invoice.addItem("tickets", 3, 1000, 3000, "Chaussures");
-        invoice.setTotalAmount(30000);
-        invoice.create();
-        if (invoice.create()) {
-            System.out.println(invoice.getStatus());
-            System.out.println(invoice.getResponseText());
-            System.out.println(invoice.getInvoiceUrl());
-        } else {
-            System.out.println(invoice.getResponseText());
-            System.out.println(invoice.getResponseCode());
-        }
-   return  invoice.getResponseText();
-    }
 
 
     @GetMapping("/etudiant")
