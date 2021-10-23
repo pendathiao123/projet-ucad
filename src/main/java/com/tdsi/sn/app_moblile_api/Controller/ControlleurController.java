@@ -3,10 +3,19 @@ package com.tdsi.sn.app_moblile_api.Controller;
 import com.tdsi.sn.app_moblile_api.Entity.Controlleur;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
 import com.tdsi.sn.app_moblile_api.Services.ControlleurService;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@EnableAutoConfiguration
+@CrossOrigin(origins = "http://localhost:3000")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ControlleurController {
 
     @Autowired
