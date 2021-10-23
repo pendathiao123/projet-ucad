@@ -24,6 +24,11 @@ public class ControlleurController {
     @Autowired
     private EtudiantController etudiantController;
 
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
+
     @GetMapping("/controlleurs")
     public Iterable<Controlleur> getControls(){
         return controlleurService.getControlleurs();
