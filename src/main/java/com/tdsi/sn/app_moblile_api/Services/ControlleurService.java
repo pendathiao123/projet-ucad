@@ -42,8 +42,8 @@ public class ControlleurService {
             return null;
         }
     }
-    public Etudiant scanCOntrolleur(String telephe_controler , Etudiant e){
-        Controlleur c = controllerRepository.findByTelephone(telephe_controler);
+    public Etudiant scanCOntrolleur(Etudiant e){
+        Controlleur c = controllerRepository.findByTelephone("765007296");
         if (!c.equals(null)){
             Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
             if (attente == null){
@@ -80,7 +80,11 @@ public class ControlleurService {
         Etudiant etudiant1 = etudiantServices.getEtudiant(etudiant.getId());
         return etudiantServices.updateEtudiant(etudiant1);
     }
-    public Etudiant annuleScan(String telephone_controler,Etudiant etudiant){
+    public Controlleur updateControlleur(Controlleur controlleur){
+        Controlleur existingController = controllerRepository.findById(controlleur.getId()).orElse(null);
+        return controllerRepository.save(existingController);
+    }
+    public Etudiant annuleScan(Etudiant etudiant){
         Attente attente = attenteRepository.findAttenteById_etudiant(etudiant.getId());
         if (!etudiant.equals(null)){
             if (LocalTime.now().getMinute() - attente.getDate().getMinute() == 0){
@@ -100,5 +104,8 @@ public class ControlleurService {
             }
         }
         return updateEtudiant(etudiant);
+    }
+    public Controlleur save(Controlleur controlleur){
+        return controllerRepository.save(controlleur);
     }
 }
