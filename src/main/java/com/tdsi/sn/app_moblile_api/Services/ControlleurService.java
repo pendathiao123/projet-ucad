@@ -49,9 +49,7 @@ public class ControlleurService {
                 Attente attente1 = new Attente();
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
-                if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
-                        LocalTime.now().isBefore(LocalTime.of(9,0,0))
-                ))){
+                if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)))) {
                     attente1.setType_repas("petit dej");
                     if (e.getSolde() >= 50){
                         e.setSolde(e.getSolde() - 50);
