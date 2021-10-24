@@ -55,7 +55,7 @@ public class EtudiantController {
         return  etudiantServices.delEtudiant(id) ;
     }
 
-    @GetMapping("etudiant/{id}")
+    @GetMapping("/etudiant/{id}")
     public Etudiant getOneEtudiant(@PathVariable int id){
         return  etudiantServices.getEtudiant(id) ;
     }
