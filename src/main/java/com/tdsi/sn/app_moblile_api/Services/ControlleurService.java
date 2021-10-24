@@ -44,7 +44,6 @@ public class ControlleurService {
     }
     public Etudiant scanCOntrolleur(Etudiant e){
         Controlleur c = controllerRepository.findByTelephone("765007296");
-        if (!c.equals(null)){
             Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
             if (attente == null){
                 Attente attente1 = new Attente();
@@ -73,7 +72,6 @@ public class ControlleurService {
                     }
                 }
             }
-        }
         return updateEtudiant(e);
     }
     public Etudiant updateEtudiant(Etudiant etudiant){
