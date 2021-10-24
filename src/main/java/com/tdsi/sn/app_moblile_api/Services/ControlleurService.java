@@ -22,7 +22,8 @@ public class ControlleurService {
 
     @Autowired
     private AttenteRepository attenteRepository;
-
+    @Autowired
+    private AttenteService attenteService;
 
     public Iterable<Controlleur> getControlleurs(){
         return controllerRepository.findAll();
@@ -43,7 +44,6 @@ public class ControlleurService {
         }
     }
     public Etudiant scanCOntrolleur(Etudiant e){
-        Controlleur c = controllerRepository.findByTelephone("765007296");
         Etudiant etudiant = etudiantServices.getEtudiant(e.getId());
         Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
             if (attente == null){
@@ -54,6 +54,7 @@ public class ControlleurService {
                         LocalTime.now().isBefore(LocalTime.of(9,30,0))
                 ))){
                     attente1.setType_repas("petit dej");
+                    attenteService.create(attente1);
                     if (e.getSolde() >= 50){
                         etudiant.setSolde(etudiant.getSolde() - 50);
                     }
@@ -68,13 +69,12 @@ public class ControlleurService {
                         ))
                 )))){
                     attente1.setType_repas("repas");
+                    attenteService.create(attente1);
                     if (etudiant.getSolde() >=100){
                         etudiant.setSolde(etudiant.getSolde() - 100);
                     }
                 }
             }
-        
-            attenteRepository.save(attente);
         return updateEtudiant(etudiant);
     }
     public Etudiant updateEtudiant(Etudiant etudiant){

@@ -26,4 +26,7 @@ public class AttenteService {
         Attente existingAttente = attenteRepository.findById(attente.getId()).orElse(null);
         return attenteRepository.save(existingAttente);
     }
+    public Attente create(Attente attente) {
+        return attenteRepository.save(attente);
+    }
 }
