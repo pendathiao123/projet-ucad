@@ -54,7 +54,6 @@ public class ControlleurService {
                         LocalTime.now().isBefore(LocalTime.of(10,30,0))
                 ))){
                     attente1.setType_repas("petit dej");
-                    attenteService.create(attente1);
                     if (e.getSolde() >= 50){
                         etudiant.setSolde(etudiant.getSolde() - 50);
                     }
@@ -69,11 +68,11 @@ public class ControlleurService {
                         ))
                 )))){
                     attente1.setType_repas("repas");
-                    attenteService.create(attente1);
                     if (etudiant.getSolde() >=100){
                         etudiant.setSolde(etudiant.getSolde() - 100);
                     }
                 }
+                attenteService.create(attente1);
             }
         return updateEtudiant(etudiant);
     }
@@ -86,13 +85,14 @@ public class ControlleurService {
         return controllerRepository.save(existingController);
     }
     public Etudiant annuleScan(Etudiant etudiant){
+        Etudiant etudiant1 = etudiantServices.getEtudiant(etudiant.getId());
         Attente attente = attenteRepository.findAttenteById_etudiant(etudiant.getId());
         if (!etudiant.equals(null)){
             if (LocalTime.now().getMinute() - attente.getDate().getMinute() == 0){
                 if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
                         LocalTime.now().isBefore(LocalTime.of(9,0,0))
                 ))){
-                    etudiant.setSolde(etudiant.getSolde()+50);
+                    etudiant1.setSolde(etudiant1.getSolde()+50);
                 }
                 else if (((LocalTime.now().isAfter(LocalTime.of(11,0,0)) &&
                         (LocalTime.now().isBefore(LocalTime.of(14,0,0))) || (
@@ -100,11 +100,11 @@ public class ControlleurService {
                                 LocalTime.now().isBefore(LocalTime.of(21,0,0))
                         ))
                 )))){
-                    etudiant.setSolde(etudiant.getSolde()+100);
+                    etudiant1.setSolde(etudiant1.getSolde()+100);
                 }
             }
         }
-        return updateEtudiant(etudiant);
+        return updateEtudiant(etudiant1);
     }
     public Controlleur save(Controlleur controlleur){
         return controllerRepository.save(controlleur);
