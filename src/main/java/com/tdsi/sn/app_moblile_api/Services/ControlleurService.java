@@ -46,7 +46,6 @@ public class ControlleurService {
         Controlleur c = controllerRepository.findByTelephone("765007296");
         Etudiant etudiant = etudiantServices.getEtudiant(e.getId());
         Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
-        if (controllerRepository.existsById(c.getId())){
             if (attente == null){
                 Attente attente1 = new Attente();
                 attente1.setDate(LocalDateTime.now());
@@ -74,7 +73,7 @@ public class ControlleurService {
                     }
                 }
             }
-        }
+        
             attenteRepository.save(attente);
         return updateEtudiant(etudiant);
     }
