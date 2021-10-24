@@ -93,7 +93,7 @@ public class ControlleurService {
                     if ((LocalTime.now().isAfter(LocalTime.of(6, 0, 0)) && (
                             LocalTime.now().isBefore(LocalTime.of(11, 0, 0))
                     ))) {
-                        if (etudiant1.getSolde() == solde -50){
+                        if (etudiant1.getSolde() == solde - 50){
                             etudiant1.setSolde(etudiant1.getSolde() + 50);
                         }
                     } else if (((LocalTime.now().isAfter(LocalTime.of(11, 0, 0)) &&
