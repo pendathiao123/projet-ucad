@@ -47,8 +47,8 @@ public class ControlleurController {
         return controlleurService.updateControlleur(controlleur);
     }
     @PostMapping("/controlleur/login")
-    public Controlleur login(@RequestBody Login login){
-        return controlleurService.verifyLogin(login.getTelephone(), login.getPassword());
+    public Controlleur login(@RequestBody Login log){
+        return controlleurService.verifyLogin(log.getTelephone(), log.getPassword());
     }
     @PostMapping("/controlleur/scanner")
     public Etudiant scanner(@RequestBody Etudiant etudiant){
