@@ -2,6 +2,7 @@ package com.tdsi.sn.app_moblile_api.Controller;
 
 import com.tdsi.sn.app_moblile_api.Entity.Controlleur;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.Entity.Login;
 import com.tdsi.sn.app_moblile_api.Services.ControlleurService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,8 +47,8 @@ public class ControlleurController {
         return controlleurService.updateControlleur(controlleur);
     }
     @PostMapping("/controlleur/login")
-    public Controlleur login(@RequestBody Controlleur controlleur){
-        return controlleurService.verifyLogin(controlleur.getTelephone(), controlleur.getPassword());
+    public Controlleur login(@RequestBody Login login){
+        return controlleurService.verifyLogin(login.getTelephone(), login.getPassword());
     }
     @PostMapping("/controlleur/scanner")
     public Etudiant scanner(@RequestBody Etudiant etudiant){
