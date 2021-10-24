@@ -88,7 +88,7 @@ public class ControlleurService {
         Etudiant etudiant1 = etudiantServices.getEtudiant(etudiant.getId());
         Attente attente = attenteRepository.findAttenteById_etudiant(etudiant.getId());
         if (!etudiant.equals(null)){
-            if (LocalTime.now().getMinute() - attente.getDate().getMinute() == 5){
+            if (LocalTime.now().getMinute() - attente.getDate().getMinute() < 6){
                 if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
                         LocalTime.now().isBefore(LocalTime.of(9,0,0))
                 ))){
