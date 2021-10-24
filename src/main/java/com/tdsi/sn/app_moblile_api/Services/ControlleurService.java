@@ -45,7 +45,7 @@ public class ControlleurService {
     public Etudiant scanCOntrolleur(Etudiant e){
         Controlleur c = controllerRepository.findByTelephone("765007296");
             Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
-            if (attente.equals(null)){
+            if (attente == null){
                 Attente attente1 = new Attente();
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
