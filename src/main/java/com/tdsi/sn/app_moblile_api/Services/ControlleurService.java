@@ -55,6 +55,7 @@ public class ControlleurService {
                     attente1.setType_repas("petit dej");
                     if (e.getSolde() >= 50){
                         e.setSolde(e.getSolde() - 50);
+                        updateEtudiant(e);
                     }
                     else {
                         System.out.println("solde insuffisant");
@@ -69,6 +70,7 @@ public class ControlleurService {
                     attente1.setType_repas("repas");
                     if (e.getSolde() >=100){
                         e.setSolde(e.getSolde() - 100);
+                        updateEtudiant(e);
                     }
                 }
             }
