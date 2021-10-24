@@ -45,7 +45,7 @@ public class ControlleurService {
     public Etudiant scanCOntrolleur(Etudiant e){
         Controlleur c = controllerRepository.findByTelephone("765007296");
             Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
-            if (attente == null){
+            if (attente.equals(null)){
                 Attente attente1 = new Attente();
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
@@ -57,18 +57,6 @@ public class ControlleurService {
                     }
                     else {
                         System.out.println("solde insuffisant");
-                    }
-                }
-                else if (((LocalTime.now().isAfter(LocalTime.of(11,0,0)) &&
-                        (LocalTime.now().isBefore(LocalTime.of(14,0,0))) || (
-                        (LocalTime.now().isAfter(LocalTime.of(19,0,0)) && (
-                                LocalTime.now().isBefore(LocalTime.of(21,0,0))
-                        ))
-                )))){
-                    attente1.setType_repas("repas");
-                    if (e.getSolde() >=100){
-                        e.setSolde(e.getSolde() - 100);
-                        updateEtudiant(e);
                     }
                 }
             }
