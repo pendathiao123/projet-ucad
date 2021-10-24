@@ -44,23 +44,38 @@ public class ControlleurService {
     }
     public Etudiant scanCOntrolleur(Etudiant e){
         Controlleur c = controllerRepository.findByTelephone("765007296");
+        Etudiant etudiant = etudiantServices.getEtudiant(e.getId());
             Attente attente = attenteRepository.findAttenteById_etudiant(e.getId());
             if (attente == null){
                 Attente attente1 = new Attente();
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
-                if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)))) {
+                if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
+                        LocalTime.now().isBefore(LocalTime.of(10,0,0))
+                ))){
                     attente1.setType_repas("petit dej");
                     if (e.getSolde() >= 50){
-                        e.setSolde(e.getSolde() - 50);
-                        updateEtudiant(e);
+                        etudiant.setSolde(etudiant.getSolde() - 50);
+                        updateEtudiant(etudiant);
                     }
                     else {
                         System.out.println("solde insuffisant");
                     }
                 }
+                else if (((LocalTime.now().isAfter(LocalTime.of(11,0,0)) &&
+                        (LocalTime.now().isBefore(LocalTime.of(14,0,0))) || (
+                        (LocalTime.now().isAfter(LocalTime.of(19,0,0)) && (
+                                LocalTime.now().isBefore(LocalTime.of(21,0,0))
+                        ))
+                )))){
+                    attente1.setType_repas("repas");
+                    if (etudiant.getSolde() >=100){
+                        etudiant.setSolde(etudiant.getSolde() - 100);
+                        updateEtudiant(etudiant);
+                    }
+                }
             }
-        return updateEtudiant(e);
+        return updateEtudiant(etudiant);
     }
     public Etudiant updateEtudiant(Etudiant etudiant){
         Etudiant etudiant1 = etudiantServices.getEtudiant(etudiant.getId());
