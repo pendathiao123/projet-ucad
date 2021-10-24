@@ -51,7 +51,7 @@ public class ControlleurService {
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
                 if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
-                        LocalTime.now().isBefore(LocalTime.of(10,30,0))
+                        LocalTime.now().isBefore(LocalTime.of(11,0,0))
                 ))){
                     attente1.setType_repas("petit dej");
                     if (e.getSolde() >= 50){
@@ -91,20 +91,20 @@ public class ControlleurService {
             if (!etudiant.equals(null)) {
                 if (LocalDateTime.now().getMinute() - attente.getDate().getMinute() < 6) {
                     if ((LocalTime.now().isAfter(LocalTime.of(6, 0, 0)) && (
-                            LocalTime.now().isBefore(LocalTime.of(10, 0, 0))
+                            LocalTime.now().isBefore(LocalTime.of(11, 0, 0))
                     ))) {
-                       while (etudiant1.getSolde() - solde < 51){
-                           etudiant1.setSolde(etudiant1.getSolde() + 50);
-                       }
+                        if (etudiant1.getSolde() == solde){
+                            etudiant1.setSolde(etudiant1.getSolde() + 50);
+                        }
                     } else if (((LocalTime.now().isAfter(LocalTime.of(11, 0, 0)) &&
                             (LocalTime.now().isBefore(LocalTime.of(14, 0, 0))) || (
                             (LocalTime.now().isAfter(LocalTime.of(19, 0, 0)) && (
                                     LocalTime.now().isBefore(LocalTime.of(21, 0, 0))
                             ))
                     )))) {
-                        while (etudiant1.getSolde() - solde < 101){
-                            etudiant1.setSolde(etudiant1.getSolde() + 100);
-                        }
+                           if (etudiant1.getSolde() == solde){
+                               etudiant1.setSolde(etudiant1.getSolde() + 100);
+                           }
                     }
                 }
             }
