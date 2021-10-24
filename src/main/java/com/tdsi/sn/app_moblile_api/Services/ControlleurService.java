@@ -51,7 +51,7 @@ public class ControlleurService {
                 attente1.setDate(LocalDateTime.now());
                 attente1.setId_etudiant(e.getId());
                 if ((LocalTime.now().isAfter(LocalTime.of(6,0,0)) && (
-                        LocalTime.now().isBefore(LocalTime.of(9,30,0))
+                        LocalTime.now().isBefore(LocalTime.of(10,30,0))
                 ))){
                     attente1.setType_repas("petit dej");
                     attenteService.create(attente1);
