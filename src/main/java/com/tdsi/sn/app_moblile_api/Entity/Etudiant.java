@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
 @AllArgsConstructor
@@ -22,4 +23,5 @@ public class Etudiant {
     private int motPasse ;
     private  int solde ;
     private String numero_carte ;
+    private BigInteger pu;
 }
