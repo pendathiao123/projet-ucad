@@ -1,8 +1,6 @@
-package com.tdsi.sn.app_moblile_api.authentification;
+package com.tdsi.sn.app_moblile_api.Services;
 
 import com.tdsi.sn.app_moblile_api.Entity.Objet;
-import org.aspectj.bridge.Message;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -10,11 +8,9 @@ import java.security.*;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.time.LocalDateTime;
-import java.util.Random;
-
 
 @Service
-public class Authentification {
+public class Verification {
     private RSAPrivateKeySpec priv;
     private RSAPublicKeySpec pub;
     private BigInteger g;
@@ -40,7 +36,7 @@ public class Authentification {
             byte[] messageDigest = md.digest((telephone+localDateTime.toString()).getBytes());
             h = new BigInteger(1, messageDigest);
         } catch (Exception e){
-               System.out.println(e.getCause());
+            System.out.println(e.getCause());
         }
         return h;
     }
@@ -56,7 +52,9 @@ public class Authentification {
         }
         return h;
     }
-    public BigInteger getPu(BigInteger hashPassword,BigInteger hashTelephone,BigInteger g){
+    public BigInteger getPu(int password,int telephone,BigInteger g){
+        BigInteger hashPassword = hashTelephone(password);
+        BigInteger hashTelephone = hashTelephone(telephone);
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
         return (a.add(BigInteger.valueOf(-1).multiply(hashTelephone))).modPow(priv.getPrivateExponent(),priv.getModulus());
     }
@@ -71,5 +69,4 @@ public class Authentification {
             return false;
         }
     }
-
 }

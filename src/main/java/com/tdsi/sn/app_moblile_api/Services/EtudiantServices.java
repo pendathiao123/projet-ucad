@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Data
@@ -14,6 +15,10 @@ public class EtudiantServices {
 
     @Autowired
     private RepoEtudiant etudiantRepository ;
+
+    @Autowired
+    private Verification verification;
+
     public List<Etudiant> listeEtudiants(){
         return  etudiantRepository.findAll() ;
     }
@@ -26,6 +31,7 @@ public class EtudiantServices {
         return  "etudent deleted" ;
     }
     public  Etudiant addEtudiant(Etudiant etudiant){
+        etudiant.setPu(verification.getPu(etudiant.getMotPasse(),etudiant.getTelephone(), BigInteger.valueOf(100001)));
         return  etudiantRepository.save(etudiant) ;
     }
 
