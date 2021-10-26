@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Verification {
     private RSAPrivateKeySpec priv;
     private RSAPublicKeySpec pub;
-    public static BigInteger g = BigInteger.valueOf(3001);
+    public static BigInteger g;
 
     public void genkeys(){
 
@@ -24,6 +24,7 @@ public class Verification {
             KeyPair pair = keyGen.genKeyPair();
             pub = KeyFactory.getInstance("RSA").getKeySpec(pair.getPublic(),RSAPublicKeySpec.class);
             priv = KeyFactory.getInstance("RSA").getKeySpec(pair.getPrivate(), RSAPrivateKeySpec.class);
+            g = BigInteger.probablePrime(2000,random);
 
         } catch (Exception e) {
             e.printStackTrace();
