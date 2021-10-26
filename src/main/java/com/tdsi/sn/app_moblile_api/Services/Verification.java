@@ -24,7 +24,7 @@ public class Verification {
             KeyPair pair = keyGen.genKeyPair();
             pub = KeyFactory.getInstance("RSA").getKeySpec(pair.getPublic(),RSAPublicKeySpec.class);
             priv = KeyFactory.getInstance("RSA").getKeySpec(pair.getPrivate(), RSAPrivateKeySpec.class);
-            g = BigInteger.valueOf(3);
+            g = new BigInteger(1024,random);
 
         } catch (Exception e) {
             e.printStackTrace();
