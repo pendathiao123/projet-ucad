@@ -61,13 +61,8 @@ public class Verification {
     }
     public BigInteger getPus(int password,int telephone){
         BigInteger  g = Verification.g;
-        BigInteger hashPassword = BigInteger.valueOf(password);
-        BigInteger hashTelephone =BigInteger.valueOf(telephone);
-        BigInteger a = g.modPow(hashPassword, pub.getModulus());
-        BigInteger b = a.multiply(BigInteger.valueOf(-1));
-        BigInteger c = b.add(hashTelephone).mod(priv.getModulus());
         // c.modPow(priv.getPrivateExponent(),priv.getModulus());
-        return hashPassword;
+        return g;
     }
     public boolean authenticaed(BigInteger Pu, BigInteger g, Objet objet) throws Exception {
         BigInteger  a = Pu.modPow(pub.getPublicExponent(),pub.getModulus()).add(hashTelephone(objet.getTelephone()));
