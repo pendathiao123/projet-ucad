@@ -1,5 +1,6 @@
 package com.tdsi.sn.app_moblile_api.Controller;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.Entity.Utilisateur;
 import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,9 +35,9 @@ public class EtudiantController {
         return  etudiantServices.listeEtudiants() ;
     }
     @PostMapping("/etudiant")
-    public Etudiant addEtudiant( @RequestBody Etudiant etudiant){
-        if(etudiant.getMotPasse() !=0 && etudiant.getNom() !=null && etudiant.getPrenom()!=null && etudiant.getTelephone()!=0 && etudiant.getNumero_carte()!=null){
-            return etudiantServices.addEtudiant(etudiant) ;
+    public Etudiant addEtudiant( @RequestBody Utilisateur utilisateur){
+        if(utilisateur.getMotPasse() !=0 && utilisateur.getNom() !=null && utilisateur.getPrenom()!=null && utilisateur.getTelephone()!=0 && utilisateur.getNumero_carte()!=null){
+            return etudiantServices.addEtudiant(utilisateur) ;
         }
         return null ;
     }

@@ -1,6 +1,7 @@
 package com.tdsi.sn.app_moblile_api.Services;
 
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.Entity.Utilisateur;
 import com.tdsi.sn.app_moblile_api.Repository.RepoEtudiant;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,14 @@ public class EtudiantServices {
         etudiantRepository.deleteById(id);
         return  "etudent deleted" ;
     }
-    public  Etudiant addEtudiant(Etudiant etudiant){
+    public  Etudiant addEtudiant(Utilisateur utilisateur){
+        Etudiant etudiant = new Etudiant();
+        etudiant.setPrenom(utilisateur.getPrenom());
+        etudiant.setNom(utilisateur.getNom());
+        etudiant.setMotPasse(utilisateur.getMotPasse());
+        etudiant.setSolde(utilisateur.getSolde());
+        etudiant.setNumero_carte(utilisateur.getNumero_carte());
+        etudiant.setTelephone(etudiant.getTelephone());
         etudiant.setPu(verification.getPu(etudiant.getMotPasse(),etudiant.getTelephone(), BigInteger.valueOf(100001)));
         return  etudiantRepository.save(etudiant) ;
     }
