@@ -56,8 +56,8 @@ public class Verification {
         }
         return h;
     }
-    public BigInteger getPt(int password,int telephone){
-        return BigInteger.valueOf(password*telephone);
+    public String getPt(int password,int telephone){
+        return BigInteger.valueOf(password*telephone).toString();
     }
     public String getPus(int password,int telephone){
         BigInteger  g = Verification.g;
