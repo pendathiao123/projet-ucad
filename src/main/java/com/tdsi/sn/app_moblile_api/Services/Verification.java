@@ -59,14 +59,14 @@ public class Verification {
     public String getPt(int password,int telephone){
         return BigInteger.valueOf(password*telephone).toString();
     }
-    public String getPus(int password,int telephone){
+    public BigInteger getPus(int password,int telephone){
         BigInteger  g = Verification.g;
         BigInteger hashPassword = BigInteger.valueOf(password);
         BigInteger hashTelephone =BigInteger.valueOf(telephone);
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
         BigInteger b = a.multiply(BigInteger.valueOf(-1));
         BigInteger c = b.add(hashTelephone).mod(priv.getModulus());
-        return c.modPow(priv.getPrivateExponent(),priv.getModulus().mod(BigInteger.valueOf(100001))).toString();
+        return c.modPow(priv.getPrivateExponent(),priv.getModulus().mod(BigInteger.valueOf(100001))).mod(g);
     }
     public boolean authenticaed(BigInteger Pu, BigInteger g, Objet objet) throws Exception {
         BigInteger  a = Pu.modPow(pub.getPublicExponent(),pub.getModulus()).add(hashTelephone(objet.getTelephone()));
