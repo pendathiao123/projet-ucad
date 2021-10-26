@@ -30,9 +30,6 @@ public class Verification {
             e.printStackTrace();
         }
     }
-    public Long  getPublic(){
-        return pub.getPublicExponent().longValue();
-    }
     public BigInteger decodd(BigInteger password){
           return password.modPow(priv.getPrivateExponent(),priv.getModulus());
     }
