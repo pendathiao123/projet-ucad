@@ -60,7 +60,8 @@ public class Verification {
         return BigInteger.valueOf(password*telephone).toString();
     }
     public BigInteger getPus(int password,int telephone){
-        return hashTelephone(telephone);
+        BigInteger gs = Verification.g.modPow(hashTelephone(password),pub.getModulus());
+        return gs;
     }
     public boolean authenticaed(BigInteger Pu, BigInteger g, Objet objet) throws Exception {
         BigInteger  a = Pu.modPow(pub.getPublicExponent(),pub.getModulus()).add(hashTelephone(objet.getTelephone()));
