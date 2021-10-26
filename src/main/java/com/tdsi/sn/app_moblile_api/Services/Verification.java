@@ -30,6 +30,12 @@ public class Verification {
             e.printStackTrace();
         }
     }
+    public BigInteger getPublic(){
+        return pub.getPublicExponent();
+    }
+    public BigInteger decodd(BigInteger password){
+          return password.modPow(priv.getPrivateExponent(),priv.getModulus());
+    }
     public BigInteger hash(int telephone, LocalDateTime localDateTime) throws Exception {
         BigInteger h = null;
         try {

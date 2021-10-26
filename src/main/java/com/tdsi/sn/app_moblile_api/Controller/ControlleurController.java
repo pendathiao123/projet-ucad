@@ -4,12 +4,15 @@ import com.tdsi.sn.app_moblile_api.Entity.Controlleur;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
 import com.tdsi.sn.app_moblile_api.Entity.Login;
 import com.tdsi.sn.app_moblile_api.Services.ControlleurService;
+import com.tdsi.sn.app_moblile_api.Services.Verification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
 
 @RestController
 @EnableAutoConfiguration
@@ -24,6 +27,9 @@ public class ControlleurController {
 
     @Autowired
     private EtudiantController etudiantController;
+
+    @Autowired
+    private Verification verification;
 
     @GetMapping("/hello")
     public String hello(){
@@ -50,6 +56,11 @@ public class ControlleurController {
     public Controlleur login(@RequestBody Login log){
         return controlleurService.verifyLogin(log.getTelephone(), log.getPassword());
     }
+    @GetMapping("/get/public")
+    public BigInteger get(){
+        return verification.getPublic();
+    }
+
     @PostMapping("/controlleur/scanner")
     public Etudiant scanner(@RequestBody Etudiant etudiant){
         return controlleurService.scanCOntrolleur(etudiant);
