@@ -24,5 +24,5 @@ public class Etudiant {
     private int motPasse ;
     private  int solde ;
     private String numero_carte ;
-    private BigInteger pu;
+    private String pu;
 }
