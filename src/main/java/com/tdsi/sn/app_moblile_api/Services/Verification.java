@@ -24,7 +24,7 @@ public class Verification {
             KeyPair pair = keyGen.genKeyPair();
             pub = KeyFactory.getInstance("RSA").getKeySpec(pair.getPublic(),RSAPublicKeySpec.class);
             priv = KeyFactory.getInstance("RSA").getKeySpec(pair.getPrivate(), RSAPrivateKeySpec.class);
-            g = BigInteger.probablePrime(1000,random);
+            g = BigInteger.valueOf(3);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,8 +58,8 @@ public class Verification {
     }
     public BigInteger getPu(int password,int telephone){
         BigInteger  g = Verification.g;
-        BigInteger hashPassword = BigInteger.valueOf(password);
-        BigInteger hashTelephone = BigInteger.valueOf(telephone);
+        BigInteger hashPassword = hashTelephone(password);
+        BigInteger hashTelephone =hashTelephone(telephone);
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
         BigInteger b = a.multiply(BigInteger.valueOf(-1).add(hashTelephone)).mod(priv.getModulus());
         return b.modPow(priv.getPrivateExponent(),priv.getModulus());
