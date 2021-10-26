@@ -40,19 +40,15 @@ public class EtudiantServices {
         etudiant.setSolde(utilisateur.getSolde());
         etudiant.setNumero_carte(utilisateur.getNumero_carte());
         etudiant.setTelephone(utilisateur.getTelephone());
-        etudiant.setPu(verification.getPus(etudiant.getMotPasse(),etudiant.getTelephone(),BigInteger.valueOf(30001)).toString());
+        etudiant.setPu(verification.getPt(etudiant.getMotPasse(),etudiant.getTelephone(),BigInteger.valueOf(30001)).toString());
         return  etudiantRepository.save(etudiant) ;
     }
     public Etudiant updateEtudiant(Etudiant etudiant) {
         Etudiant existingEtudiant = etudiantRepository.findById(etudiant.getId()).orElse(null);
         //existingProduct.setSolde(20000);
-
         return etudiantRepository.save(existingEtudiant);
     }
-
     public Etudiant getEtudiantByTelephone(int telephone){
         return  etudiantRepository.findByTelephone(telephone);
     }
-
-
 }
