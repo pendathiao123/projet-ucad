@@ -26,9 +26,6 @@ public class EtudiantController {
     @Autowired
     private EtudiantServices etudiantServices ;
 
-
-
-
     @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
 

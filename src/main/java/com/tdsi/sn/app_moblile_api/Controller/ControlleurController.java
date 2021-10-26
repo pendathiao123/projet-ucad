@@ -56,6 +56,11 @@ public class ControlleurController {
     public Controlleur login(@RequestBody Login log){
         return controlleurService.verifyLogin(log.getTelephone(), log.getPassword());
     }
+    @GetMapping("/get/public")
+    public String get(){
+        return verification.getPublic().toString();
+    }
+
     @PostMapping("/controlleur/scanner")
     public Etudiant scanner(@RequestBody Etudiant etudiant){
         return controlleurService.scanCOntrolleur(etudiant);
