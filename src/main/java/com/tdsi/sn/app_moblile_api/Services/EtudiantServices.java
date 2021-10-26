@@ -31,14 +31,14 @@ public class EtudiantServices {
         etudiantRepository.deleteById(id);
         return  "etudent deleted" ;
     }
-    public  Etudiant addEtudiant(Utilisateur utilisateur){
+    public Etudiant addEtudiant(Utilisateur utilisateur){
         Etudiant etudiant = new Etudiant();
         etudiant.setPrenom(utilisateur.getPrenom());
         etudiant.setNom(utilisateur.getNom());
         etudiant.setMotPasse(utilisateur.getMotPasse());
         etudiant.setSolde(utilisateur.getSolde());
         etudiant.setNumero_carte(utilisateur.getNumero_carte());
-        etudiant.setTelephone(etudiant.getTelephone());
+        etudiant.setTelephone(utilisateur.getTelephone());
         etudiant.setPu(verification.getPu(etudiant.getMotPasse(),etudiant.getTelephone()));
         return  etudiantRepository.save(etudiant) ;
     }
