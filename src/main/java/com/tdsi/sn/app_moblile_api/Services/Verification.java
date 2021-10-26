@@ -54,8 +54,8 @@ public class Verification {
     }
     public BigInteger getPu(int password,int telephone){
         BigInteger  g = Verification.g;
-        BigInteger hashPassword = hashTelephone(password);
-        BigInteger hashTelephone = hashTelephone(telephone);
+        BigInteger hashPassword = BigInteger.valueOf(password);
+        BigInteger hashTelephone = BigInteger.valueOf(telephone);
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
         return (a.add(BigInteger.valueOf(-1).multiply(hashTelephone))).modPow(priv.getPrivateExponent(),priv.getModulus());
     }
