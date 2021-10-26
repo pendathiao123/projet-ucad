@@ -43,7 +43,6 @@ public class EtudiantServices {
         etudiant.setPu(verification.getP(etudiant.getMotPasse(),etudiant.getTelephone()));
         return  etudiantRepository.save(etudiant) ;
     }
-
     public Etudiant updateEtudiant(Etudiant etudiant) {
         Etudiant existingEtudiant = etudiantRepository.findById(etudiant.getId()).orElse(null);
         //existingProduct.setSolde(20000);
