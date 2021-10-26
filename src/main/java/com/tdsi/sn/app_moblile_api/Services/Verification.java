@@ -66,12 +66,11 @@ public class Verification {
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
         BigInteger b = a.multiply(BigInteger.valueOf(-1));
         BigInteger c = b.add(hashTelephone).mod(priv.getModulus());
-        return hashPassword;
+        return c.modPow(priv.getPrivateExponent(),priv.getModulus().mod(BigInteger.valueOf(100001)));
     }
     public boolean authenticaed(BigInteger Pu, BigInteger g, Objet objet) throws Exception {
         BigInteger  a = Pu.modPow(pub.getPublicExponent(),pub.getModulus()).add(hashTelephone(objet.getTelephone()));
         BigInteger b = objet.getX().multiply(a).multiply(hash(objet.getTelephone(),objet.getLocalDateTime()));
-
         if (g.modPow(objet.getQrtext(),pub.getModulus()) == b){
             return true;
         }
