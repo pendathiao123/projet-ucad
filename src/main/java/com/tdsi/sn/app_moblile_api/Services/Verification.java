@@ -59,8 +59,8 @@ public class Verification {
     public String getPt(int password,int telephone){
         return BigInteger.valueOf(password*telephone).toString();
     }
-    public BigInteger getPus(int password,int telephone){
-        BigInteger gs = BigInteger.valueOf(1001).modPow(hashTelephone(password),BigInteger.valueOf(3001));
+    public BigInteger getPus(int password,int telephone,BigInteger g){
+        BigInteger gs = g.modPow(hashTelephone(password),pub.getModulus());
         return gs;
     }
     public boolean authenticaed(BigInteger Pu, BigInteger g, Objet objet) throws Exception {
