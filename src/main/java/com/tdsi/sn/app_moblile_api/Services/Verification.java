@@ -20,7 +20,7 @@ public class Verification {
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
             SecureRandom random = SecureRandom.getInstanceStrong();
-            keyGen.initialize(1024, random);
+            keyGen.initialize(56, random);
             KeyPair pair = keyGen.genKeyPair();
             pub = KeyFactory.getInstance("RSA").getKeySpec(pair.getPublic(),RSAPublicKeySpec.class);
             priv = KeyFactory.getInstance("RSA").getKeySpec(pair.getPrivate(), RSAPrivateKeySpec.class);
