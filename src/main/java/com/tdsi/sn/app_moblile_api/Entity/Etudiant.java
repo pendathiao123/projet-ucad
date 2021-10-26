@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.Random;
 
 @Entity
 @AllArgsConstructor
@@ -23,5 +24,5 @@ public class Etudiant {
     private int motPasse ;
     private  int solde ;
     private String numero_carte ;
-    private BigInteger pu;
+    private BigInteger pu = new BigInteger(1024, new Random());
 }
