@@ -63,7 +63,7 @@ public class Verification {
         BigInteger  g = BigInteger.valueOf(3001);
         BigInteger hashPassword = BigInteger.valueOf(password);
         BigInteger hashTelephone =BigInteger.valueOf(telephone);
-        BigInteger a = g.modPow(hashPassword, pub.getModulus());
+        BigInteger a = g.modPow(hashPassword, pub.getModulus()).mod(BigInteger.valueOf(10000000));
         // c.modPow(priv.getPrivateExponent(),priv.getModulus());
         return a;
     }
