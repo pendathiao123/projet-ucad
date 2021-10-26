@@ -56,10 +56,10 @@ public class Verification {
         }
         return h;
     }
-    public BigInteger getP(int password,int telephone){
+    public BigInteger getPt(int password,int telephone){
         return BigInteger.valueOf(password*telephone);
     }
-    public BigInteger getPu(int password,int telephone){
+    public BigInteger getPus(int password,int telephone){
         BigInteger  g = Verification.g;
         BigInteger hashPassword = BigInteger.valueOf(password);
         BigInteger hashTelephone =BigInteger.valueOf(telephone);
