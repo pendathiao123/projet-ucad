@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Verification {
     private RSAPrivateKeySpec priv;
     private RSAPublicKeySpec pub;
-    private BigInteger g;
+    public static BigInteger g = BigInteger.valueOf(3001);
 
     public void genkeys(){
 
@@ -52,7 +52,8 @@ public class Verification {
         }
         return h;
     }
-    public BigInteger getPu(int password,int telephone,BigInteger g){
+    public BigInteger getPu(int password,int telephone){
+        BigInteger  g = Verification.g;
         BigInteger hashPassword = hashTelephone(password);
         BigInteger hashTelephone = hashTelephone(telephone);
         BigInteger a = g.modPow(hashPassword, pub.getModulus());
