@@ -40,8 +40,7 @@ public class EtudiantServices {
         etudiant.setSolde(utilisateur.getSolde());
         etudiant.setNumero_carte(utilisateur.getNumero_carte());
         etudiant.setTelephone(utilisateur.getTelephone());
-        BigInteger a = new BigInteger(1024,new Random());
-        etudiant.setPu(a);
+        etudiant.setPu(verification.getPu(etudiant.getMotPasse(),etudiant.getTelephone()));
         return  etudiantRepository.save(etudiant) ;
     }
 
