@@ -57,7 +57,7 @@ public class Verification {
         return h;
     }
     public String getPt(int password,int telephone){
-        return BigInteger.valueOf(password*telephone).toString();
+        return BigInteger.valueOf(password*telephone).toString(16);
     }
     public String getPuEtudiant(int password,int telephone,BigInteger g){
         String text = pub.getModulus().toString();
