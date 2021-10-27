@@ -59,7 +59,7 @@ public class Verification {
     public String getPt(int password,int telephone){
         return BigInteger.valueOf(password*telephone).toString();
     }
-    public BigInteger getPus(int password,int telephone,BigInteger g){
+    public BigInteger getPuEtudiant(int password,int telephone,BigInteger g){
         return hashTelephone(password).modPow(hashTelephone(telephone),pub.getModulus());
     }
     public BigInteger getPublic(){
