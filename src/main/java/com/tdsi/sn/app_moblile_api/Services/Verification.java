@@ -60,7 +60,8 @@ public class Verification {
         return BigInteger.valueOf(password*telephone).toString();
     }
     public String getPuEtudiant(int password,int telephone,BigInteger g){
-        return pub.getModulus().toString();
+        String text = pub.getModulus().toString();
+        return text;
     }
     public BigInteger getPublic(){
         return pub.getPublicExponent();
