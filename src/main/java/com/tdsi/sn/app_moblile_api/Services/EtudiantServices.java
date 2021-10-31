@@ -39,4 +39,8 @@ public class EtudiantServices {
     public Etudiant getEtudiantByTelephone(int telephone){
         return  etudiantRepository.findByTelephone(telephone);
     }
+
+    public  Etudiant addStudent(Etudiant etudiant){
+        return etudiantRepository.save(etudiant);
+    }
 }

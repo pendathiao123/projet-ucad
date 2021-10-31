@@ -31,6 +31,15 @@ public class EtudiantController {
         return  etudiantServices.listeEtudiants() ;
     }
 
+
+    @PostMapping("/etudiant")
+    public Etudiant addEtudiants( RequestBody Etudiant etudiant){
+
+
+        return  etudiantServices.addStudent(etudiant) ;
+    }
+
+
     @GetMapping("/")
     public String hello(){
         System.out.println("je suis Println");
@@ -87,13 +96,27 @@ public class EtudiantController {
               return null ;
     }
 
-    @PostMapping("paySuccess")
-    public String   Success(){
+    
+    @GetMapping("paySuccess")
+    public ResponseEntity<String>   failed(@RequestParam("token") String token){
+        RestTemplate rest = new RestTemplate();
+        String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
+        //String  result = rest.getForObject(uri , String.class) ;
         Etudiant etudiant = etudiantServices.getEtudiant(1);
-        etudiant.setSolde(2000000);
+        etudiant.setSolde(3400000);
         etudiantServices.updateEtudiant(etudiant);
-        return "good";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.add("Content-Type","application/json" );
+        headers.add("PAYDUNYA-MASTER-KEY", "JdXnJOs0-4RXg-YNAF-BDQu-jZxzduBEnsS5"  );
+        headers.add("PAYDUNYA-PRIVATE-KEY", "test_private_ektGD8m72KBgA1yvh7qOLSq0Q8f" );
+        headers.add("PAYDUNYA-TOKEN", "ts7lvJUpbBiSuUhgd52q"  );
+
+        HttpEntity<String> entity = new HttpEntity<>("body", headers );
+
+       ResponseEntity<String> result =  rest.exchange(uri, HttpMethod.GET, entity, String.class);
+        return result ;
     }
-   
 
 }
