@@ -18,7 +18,9 @@ public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id ;
+    @Column( nullable = false ) 
     private String nom ;
+    @Column( nullable = false ) 
     private String prenom ;
     @Column(name = "telephone" , unique = true ,length = 9 ,nullable = false ) 
     private  int telephone  ;
