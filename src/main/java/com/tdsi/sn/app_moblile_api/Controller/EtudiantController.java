@@ -33,14 +33,14 @@ public class EtudiantController {
 
 
     @PostMapping("/etudiant")
-    public Etudiant addEtudiants( RequestBody Etudiant etudiant){
+    public Etudiant addEtudiants(@RequestBody Etudiant etudiant){
         return  etudiantServices.addStudent(etudiant) ;
     }
 
 
     @GetMapping("/")
     public String hello(){
-        System.out.println("je suis Println");
+       // System.out.println("je suis Println");
         return "Hello from Api Spring boot 222" ;
     }
     @PutMapping("/etudiant")
