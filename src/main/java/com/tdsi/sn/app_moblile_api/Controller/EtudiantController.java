@@ -34,8 +34,6 @@ public class EtudiantController {
 
     @PostMapping("/etudiant")
     public Etudiant addEtudiants( RequestBody Etudiant etudiant){
-
-
         return  etudiantServices.addStudent(etudiant) ;
     }
 
