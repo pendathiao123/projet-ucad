@@ -1,5 +1,6 @@
 package com.tdsi.sn.app_moblile_api.Controller;
 import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.Entity.ResponseAchat;
 import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -96,7 +97,7 @@ public class EtudiantController {
 
     
     @GetMapping("paySuccess")
-    public ResponseEntity<Etudiant>   failed(@RequestParam("token") String token){
+    public ResponseEntity<ResponseAchat>   failed(@RequestParam("token") String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         //String  result = rest.getForObject(uri , String.class) ;
@@ -113,7 +114,7 @@ public class EtudiantController {
 
         HttpEntity<String> entity = new HttpEntity<>("body", headers );
 
-       ResponseEntity<Etudiant> result =  rest.exchange(uri, HttpMethod.GET, entity, Etudiant.class);
+       ResponseEntity<ResponseAchat> result =  rest.exchange(uri, HttpMethod.GET, entity, ResponseAchat.class);
        result.getBody();
         return result ;
     }
