@@ -101,7 +101,7 @@ public class EtudiantController {
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         //String  result = rest.getForObject(uri , String.class) ;
         Etudiant etudiant = etudiantServices.getEtudiant(1);
-        etudiant.setSolde(3400000);
+        etudiant.setSolde(34000);
         etudiantServices.updateEtudiant(etudiant);
 
         HttpHeaders headers = new HttpHeaders();
