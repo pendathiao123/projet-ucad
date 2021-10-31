@@ -20,9 +20,10 @@ public class Etudiant {
     private  int id ;
     private String nom ;
     private String prenom ;
+    @Column(name = "telephone" , unique = true ,length = 9 ,nullable = false ) 
     private  int telephone  ;
     private int motPasse ;
     private  int solde ;
+    @Column(name = "numero_carte" , unique = true ,length = 9 , nullable = false ) 
     private String numero_carte ;
-    private String pu;
 }
