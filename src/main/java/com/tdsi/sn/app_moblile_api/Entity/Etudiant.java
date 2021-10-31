@@ -24,6 +24,7 @@ public class Etudiant {
     private String prenom ;
     @Column(name = "telephone" , unique = true ,length = 9 ,nullable = false ) 
     private  int telephone  ;
+    @Column(name = "motPasse" , unique = true ,length = 4 ,nullable = false ) 
     private int motPasse ;
     private  int solde ;
     @Column(name = "numero_carte" , unique = true ,length = 9 , nullable = false ) 
