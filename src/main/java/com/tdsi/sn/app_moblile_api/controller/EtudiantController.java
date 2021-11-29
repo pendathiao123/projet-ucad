@@ -1,13 +1,9 @@
-package com.tdsi.sn.app_moblile_api.Controller;
-import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
-import com.tdsi.sn.app_moblile_api.Entity.ResponseAchat;
-import com.tdsi.sn.app_moblile_api.Services.EtudiantServices;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.json.JSONObject;
+package com.tdsi.sn.app_moblile_api.controller;
+
+import com.tdsi.sn.app_moblile_api.entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.entity.ResponseAchat;
+import com.tdsi.sn.app_moblile_api.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -16,15 +12,10 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@EnableAutoConfiguration
-@CrossOrigin(origins = "http://localhost:3000")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class EtudiantController {
 
     @Autowired
-    private EtudiantServices etudiantServices ;
+    private EtudiantService etudiantServices ;
 
     @GetMapping("/etudiant")
     public List<Etudiant> getEtudiants(){
@@ -41,7 +32,7 @@ public class EtudiantController {
 
     @GetMapping("/")
     public String hello(){
-       // System.out.println("je suis Println");
+        // System.out.println("je suis Println");
         return "Hello from Api Spring boot 222" ;
     }
     @PutMapping("/etudiant")
@@ -89,15 +80,15 @@ public class EtudiantController {
     @PostMapping ("oneEtudiant")
     public  Etudiant getOneEtudiantByTelephone(@RequestBody Etudiant etudiant){
         int telephone = etudiant.getTelephone() ;
-          if(etudiantServices.getEtudiantByTelephone(telephone)!=null) {
-              return etudiantServices.getEtudiantByTelephone(telephone);
-          }else
-              return null ;
+        if(etudiantServices.getEtudiantByTelephone(telephone)!=null) {
+            return etudiantServices.getEtudiantByTelephone(telephone);
+        }else
+            return null ;
     }
 
-    
+
     @GetMapping("paySuccess")
-    public ResponseEntity<ResponseAchat>   failed(@RequestParam("token") String token){
+    public ResponseEntity<ResponseAchat> failed(@RequestParam("token") String token){
         RestTemplate rest = new RestTemplate();
         String uri = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/confirm/"+token ;
         //String  result = rest.getForObject(uri , String.class) ;
@@ -114,9 +105,8 @@ public class EtudiantController {
 
         HttpEntity<String> entity = new HttpEntity<>("body", headers );
 
-       ResponseEntity<ResponseAchat> result =  rest.exchange(uri, HttpMethod.GET, entity, ResponseAchat.class);
-       result.getBody();
+        ResponseEntity<ResponseAchat> result =  rest.exchange(uri, HttpMethod.GET, entity, ResponseAchat.class);
+        result.getBody();
         return result ;
     }
-
 }

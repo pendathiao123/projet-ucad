@@ -1,28 +1,23 @@
-package com.tdsi.sn.app_moblile_api.Services;
+package com.tdsi.sn.app_moblile_api.service;
 
-import com.tdsi.sn.app_moblile_api.Entity.Etudiant;
-import com.tdsi.sn.app_moblile_api.Repository.RepoEtudiant;
-import lombok.Data;
+import com.tdsi.sn.app_moblile_api.entity.Etudiant;
+import com.tdsi.sn.app_moblile_api.repository.EtudiantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.List;
-import java.util.Random;
 
-@Data
 @Service
-public class EtudiantServices {
+public class EtudiantService {
 
     @Autowired
-    private RepoEtudiant etudiantRepository ;
+    private EtudiantRepository etudiantRepository ;
 
-    @Autowired
 
     public List<Etudiant> listeEtudiants(){
         return  etudiantRepository.findAll() ;
     }
-    public  Etudiant getEtudiant(int id ){
+    public Etudiant getEtudiant(int id ){
         return  etudiantRepository.findById(id).orElse(null) ;
     }
 
@@ -30,9 +25,16 @@ public class EtudiantServices {
         etudiantRepository.deleteById(id);
         return  "etudent deleted" ;
     }
-   
+
+    public Etudiant est_un_etudiant(String numero_carte) {
+        Etudiant etudiant = null;
+        if (etudiantRepository.findByNumero_carte(numero_carte) != null) {
+            etudiant = etudiantRepository.findByNumero_carte(numero_carte);
+        }
+        return etudiant;
+    }
     public Etudiant updateEtudiant(Etudiant etudiant) {
-        Etudiant existingEtudiant = etudiantRepository.findById(etudiant.getId()).orElse(null);
+        Etudiant existingEtudiant = etudiantRepository.findById(etudiant.getIdEtudiant()).orElse(null);
         //existingProduct.setSolde(20000);
         return etudiantRepository.save(existingEtudiant);
     }

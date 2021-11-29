@@ -1,4 +1,4 @@
-package com.tdsi.sn.app_moblile_api.Entity;
+package com.tdsi.sn.app_moblile_api.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
