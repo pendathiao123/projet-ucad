@@ -15,8 +15,6 @@ public class TimeController {
     @GetMapping("/time")
     @ResponseStatus(HttpStatus.OK)
     public String getCurrentTime() {
-
-        int a = 6;
         return Instant.now().toString();
     }
 }
